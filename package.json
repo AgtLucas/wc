@@ -18,8 +18,14 @@
   "homepage": "https://github.com/AgtLucas/wc#readme",
   "dependencies": {
     "express": "^4.13.4",
+    "lodash": "^4.0.0",
+    "lost": "^6.7.0",
+    "normalize-styl": "^3.0.3",
+    "precss": "^1.4.0",
     "react": "^0.14.6",
-    "react-dom": "^0.14.6"
+    "react-dom": "^0.14.6",
+    "rimraf": "^2.5.0",
+    "rucksack-css": "^0.8.5"
   },
   "devDependencies": {
     "babel-core": "^6.4.5",
