@@ -31,9 +31,9 @@ class App extends Component {
     return Math.floor(initialMoney / walterPrice)
   }
 
-  cashRemaining (x) {
+  cashRemaining (numberOfBottles) {
     let { walterPrice, initialMoney } = this.state
-    let cashRemaining = initialMoney - x * walterPrice
+    let cashRemaining = initialMoney - numberOfBottles * walterPrice
     return Math.round(cashRemaining * 100.0)
   }
 
