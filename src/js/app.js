@@ -32,15 +32,18 @@ class App extends Component {
   }
 
   cashRemaining () {
-    let { bottlesForMoney, walterPrice, initialMoney, cashRemaining } = this.state
-    cashRemaining = initialMoney - bottlesForMoney * walterPrice
-    this.setState({ cashRemaining: cashRemaining })
+    let { walterPrice, initialMoney, cashRemaining } = this.state
+    let bottles = this.bottlesForMoney(initialMoney)
+    cashRemaining = initialMoney - bottles * walterPrice
+    this.setState({
+      bottlesForMoney: bottles,
+      cashRemaining: cashRemaining
+    })
   }
 
   handleSubmit (e) {
     e.preventDefault()
-    let bottles = this.bottlesForMoney(this.state.initialMoney)
-    this.setState({ bottlesForMoney: bottles })
+    this.cashRemaining()
   }
 
   render () {
