@@ -18,6 +18,10 @@ class App extends Component {
     }
   }
 
+  round (x) {
+    return Math.round(x * 100.0) / 100.0
+  }
+
   onChangeWalterPrice (e) {
     this.setState({ walterPrice: e.target.value })
   }
@@ -34,7 +38,11 @@ class App extends Component {
   cashRemaining (numberOfBottles) {
     let { walterPrice, initialMoney } = this.state
     let cashRemaining = initialMoney - numberOfBottles * walterPrice
-    return Math.round(cashRemaining * 100.0)
+    return this.round(cashRemaining)
+  }
+
+  moneyForTare (numberOfBottles) {
+
   }
 
   handleSubmit (e) {
