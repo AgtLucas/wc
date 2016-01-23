@@ -10,12 +10,17 @@ class App extends Component {
     super(props)
     this.state = {
       walterPrice: 0.53,
-      tarePrice: 0.08
+      tarePrice: 0.08,
+      myMoney: 0
     }
   }
 
   onChangeWalterPrice (e) {
     this.setState({ walterPrice: e.target.value })
+  }
+
+  onChangeTheMoneyThatIHave (e) {
+    this.setState({ myMoney: e.target.value })
   }
 
   render () {
@@ -29,8 +34,15 @@ class App extends Component {
               <input onChange={this.onChangeWalterPrice.bind(this)} ref='walterPrice' value={this.state.walterPricee} />
             </label>
           </div>
+          <div className='input__field'>
+            <label>
+              I have
+              <input onChange={this.onChangeTheMoneyThatIHave.bind(this)} ref='myMoney' value={this.state.myMoney} />
+            </label>
+          </div>
           <div>
             <p>{this.state.walterPrice}</p>
+            <p>{this.state.myMoney}</p>
           </div>
         </div>
       </section>
