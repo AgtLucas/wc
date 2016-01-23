@@ -48,8 +48,7 @@ class App extends Component {
     return this.round(moneyForTare)
   }
 
-  handleSubmit (e) {
-    e.preventDefault()
+  calculate () {
     let theBottles = this.bottlesForMoney(this.state.initialMoney)
     let cashRemaining = this.cashRemaining(theBottles)
     let moneyForTare = this.moneyForTare(theBottles)
@@ -60,6 +59,11 @@ class App extends Component {
       cashForTare: moneyForTare,
       total: this.round(total)
     })
+  }
+
+  handleSubmit (e) {
+    e.preventDefault()
+    this.calculate()
   }
 
   render () {
