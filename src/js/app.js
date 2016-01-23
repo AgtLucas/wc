@@ -9,12 +9,13 @@ class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      name: ''
+      walterPrice: 0.53,
+      tarePrice: 0.08
     }
   }
 
-  onChangeName (e) {
-    this.setState({ name: e.target.value })
+  onChangeWalterPrice (e) {
+    this.setState({ walterPrice: e.target.value })
   }
 
   render () {
@@ -23,8 +24,8 @@ class App extends Component {
         <div className='wrapper'>
           <p>Hey!</p>
           <div>
-            <input onChange={this.onChangeName.bind(this)} ref='name' placeholder='name' />
-            <p>{this.state.name}</p>
+            <input onChange={this.onChangeWalterPrice.bind(this)} ref='walterPrice' placeholder='Walter Price' value={this.state.walterPricee} />
+            <p>{this.state.walterPrice}</p>
           </div>
         </div>
       </section>
