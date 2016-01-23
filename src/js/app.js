@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { render } from 'react-dom'
 
 import styles from '../styles/main.styl'
@@ -17,6 +17,10 @@ class App extends Component {
       cashForTare: 0,
       total: 0
     }
+  }
+
+  componentDidUpdate () {
+    console.log(this.state)
   }
 
   round (x) {
@@ -59,6 +63,7 @@ class App extends Component {
       cashForTare: moneyForTare,
       total: this.round(total)
     })
+    // console.log(this.state)
   }
 
   handleSubmit (e) {
@@ -74,13 +79,13 @@ class App extends Component {
           <form onSubmit={this.handleSubmit.bind(this)}>
             <div className='input__field'>
               <label>
-              Walter price
+                Walter price
                 <input onChange={this.onChangeWalterPrice.bind(this)} ref='walterPrice' value={this.state.walterPrice} />
               </label>
             </div>
             <div className='input__field'>
               <label>
-              I have
+                I have
                 <input onChange={this.onChangeTheMoneyThatIHave.bind(this)} ref='initialMoney' value={this.state.initialMoney} />
               </label>
             </div>
