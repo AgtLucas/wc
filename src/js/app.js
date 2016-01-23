@@ -78,7 +78,7 @@ class App extends Component {
 
           <div>
             <p>Bottles: {this.state.bottlesForMoney}</p>
-            <p>Cash Remaining: {this.state.cashRemaining}</p>
+            <p>Cash Remaining: {this.state.cashRemaining}<small>€</small></p>
           </div>
         </div>
       </section>
