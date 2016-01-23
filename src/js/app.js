@@ -12,7 +12,9 @@ class App extends Component {
       walterPrice: 0.53,
       tarePrice: 0.08,
       initialMoney: 0,
-      bottlesForMoney: 0
+      bottlesForMoney: 0,
+      cashRemaining: 0,
+      cashForTare: 0
     }
   }
 
@@ -26,9 +28,14 @@ class App extends Component {
 
   bottlesForMoney () {
     let { initialMoney, walterPrice } = this.state
-
     let theTotalOfBottlesForMoney = Math.floor(initialMoney / walterPrice)
     this.setState({ bottlesForMoney: theTotalOfBottlesForMoney })
+  }
+
+  cashRemaining () {
+    let { bottlesForMoney, walterPrice, initialMoney, cashRemaining } = this.state
+    cashRemaining = initialMoney - bottlesForMoney * walterPrice
+    this.setState({ cashRemaining: cashRemaining })
   }
 
   handleSubmit (e) {
@@ -59,7 +66,7 @@ class App extends Component {
 
           <div>
             <p>Bottles: {this.state.bottlesForMoney}</p>
-            <p>{this.state.initialMoney}</p>
+            <p>Cash Remaining: {this.state.cashRemaining}</p>
           </div>
         </div>
       </section>
