@@ -31,19 +31,20 @@ class App extends Component {
     return Math.floor(initialMoney / walterPrice)
   }
 
-  cashRemaining () {
-    let { walterPrice, initialMoney, cashRemaining } = this.state
-    let bottles = this.bottlesForMoney(initialMoney)
-    cashRemaining = initialMoney - bottles * walterPrice
-    this.setState({
-      bottlesForMoney: bottles,
-      cashRemaining: cashRemaining
-    })
+  cashRemaining (x) {
+    let { walterPrice, initialMoney } = this.state
+    let cashRemaining = initialMoney - x * walterPrice
+    return Math.round(cashRemaining * 100.0)
   }
 
   handleSubmit (e) {
     e.preventDefault()
-    this.cashRemaining()
+    let y = this.bottlesForMoney(this.state.initialMoney)
+    let x = this.cashRemaining(y)
+    this.setState({
+      bottlesForMoney: y,
+      cashRemaining: x
+    })
   }
 
   render () {
