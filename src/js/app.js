@@ -26,10 +26,9 @@ class App extends Component {
     this.setState({ initialMoney: e.target.value })
   }
 
-  bottlesForMoney () {
-    let { initialMoney, walterPrice } = this.state
-    let theTotalOfBottlesForMoney = Math.floor(initialMoney / walterPrice)
-    this.setState({ bottlesForMoney: theTotalOfBottlesForMoney })
+  bottlesForMoney (initialMoney) {
+    let { walterPrice } = this.state
+    return Math.floor(initialMoney / walterPrice)
   }
 
   cashRemaining () {
@@ -40,7 +39,8 @@ class App extends Component {
 
   handleSubmit (e) {
     e.preventDefault()
-    this.bottlesForMoney()
+    let bottles = this.bottlesForMoney(this.state.initialMoney)
+    this.setState({ bottlesForMoney: bottles })
   }
 
   render () {
