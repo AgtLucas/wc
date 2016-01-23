@@ -14,7 +14,8 @@ class App extends Component {
       initialMoney: 0,
       bottlesForMoney: 0,
       cashRemaining: 0,
-      cashForTare: 0
+      cashForTare: 0,
+      total: 0
     }
   }
 
@@ -42,16 +43,22 @@ class App extends Component {
   }
 
   moneyForTare (numberOfBottles) {
-
+    let { tarePrice } = this.state
+    let moneyForTare = numberOfBottles * tarePrice
+    return this.round(moneyForTare)
   }
 
   handleSubmit (e) {
     e.preventDefault()
-    let y = this.bottlesForMoney(this.state.initialMoney)
-    let x = this.cashRemaining(y)
+    let theBottles = this.bottlesForMoney(this.state.initialMoney)
+    let cashRemaining = this.cashRemaining(theBottles)
+    let moneyForTare = this.moneyForTare(theBottles)
+    let total = cashRemaining + moneyForTare
     this.setState({
-      bottlesForMoney: y,
-      cashRemaining: x
+      bottlesForMoney: theBottles,
+      cashRemaining: cashRemaining,
+      cashForTare: moneyForTare,
+      total: this.round(total)
     })
   }
 
@@ -79,6 +86,8 @@ class App extends Component {
           <div>
             <p>Bottles: {this.state.bottlesForMoney}</p>
             <p>Cash Remaining: {this.state.cashRemaining}<small>€</small></p>
+            <p>Cash for Tare: {this.state.cashForTare}<small>€</small></p>
+            <p>Total: {this.state.total}<small>€</small></p>
           </div>
         </div>
       </section>
