@@ -11,7 +11,8 @@ class App extends Component {
     this.state = {
       walterPrice: 0.53,
       tarePrice: 0.08,
-      myMoney: 0
+      initialMoney: 0,
+      bottlesForMoney: 0
     }
   }
 
@@ -20,7 +21,19 @@ class App extends Component {
   }
 
   onChangeTheMoneyThatIHave (e) {
-    this.setState({ myMoney: e.target.value })
+    this.setState({ initialMoney: e.target.value })
+  }
+
+  bottlesForMoney () {
+    let { initialMoney, walterPrice } = this.state
+
+    let theTotalOfBottlesForMoney = Math.floor(initialMoney / walterPrice)
+    this.setState({ bottlesForMoney: theTotalOfBottlesForMoney })
+  }
+
+  handleSubmit (e) {
+    e.preventDefault()
+    this.bottlesForMoney()
   }
 
   render () {
@@ -28,21 +41,25 @@ class App extends Component {
       <section>
         <div className='wrapper'>
           <p>Hey!</p>
-          <div className='input__field'>
-            <label>
+          <form onSubmit={this.handleSubmit.bind(this)}>
+            <div className='input__field'>
+              <label>
               Walter price
-              <input onChange={this.onChangeWalterPrice.bind(this)} ref='walterPrice' value={this.state.walterPricee} />
-            </label>
-          </div>
-          <div className='input__field'>
-            <label>
+                <input onChange={this.onChangeWalterPrice.bind(this)} ref='walterPrice' value={this.state.walterPrice} />
+              </label>
+            </div>
+            <div className='input__field'>
+              <label>
               I have
-              <input onChange={this.onChangeTheMoneyThatIHave.bind(this)} ref='myMoney' value={this.state.myMoney} />
-            </label>
-          </div>
+                <input onChange={this.onChangeTheMoneyThatIHave.bind(this)} ref='initialMoney' value={this.state.initialMoney} />
+              </label>
+            </div>
+            <button>Calculate</button>
+          </form>
+
           <div>
-            <p>{this.state.walterPrice}</p>
-            <p>{this.state.myMoney}</p>
+            <p>Bottles: {this.state.bottlesForMoney}</p>
+            <p>{this.state.initialMoney}</p>
           </div>
         </div>
       </section>
