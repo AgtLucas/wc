@@ -23,8 +23,13 @@ class App extends Component {
       <section>
         <div className='wrapper'>
           <p>Hey!</p>
+          <div className='input__field'>
+            <label>
+              Walter price
+              <input onChange={this.onChangeWalterPrice.bind(this)} ref='walterPrice' value={this.state.walterPricee} />
+            </label>
+          </div>
           <div>
-            <input onChange={this.onChangeWalterPrice.bind(this)} ref='walterPrice' placeholder='Walter Price' value={this.state.walterPricee} />
             <p>{this.state.walterPrice}</p>
           </div>
         </div>
