@@ -20,7 +20,6 @@ class App extends Component {
   }
 
   componentDidUpdate () {
-    console.log(this.state)
   }
 
   round (x) {
