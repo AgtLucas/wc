@@ -20,6 +20,7 @@ class App extends Component {
   }
 
   componentDidUpdate () {
+    let bottles = this.bottlesForMoney(this.state.initialMoney)
   }
 
   round (x) {
@@ -65,12 +66,18 @@ class App extends Component {
     // console.log(this.state)
   }
 
+  theCalculator () {
+    let { total } = this.state
+    console.log(total)
+  }
+
   handleSubmit (e) {
     e.preventDefault()
     this.calculate()
   }
 
   render () {
+    console.log(this.state)
     return (
       <section>
         <div className='wrapper'>
@@ -79,7 +86,7 @@ class App extends Component {
             <div className='input__field'>
               <label>
                 Walter price
-                <input onChange={this.onChangeWalterPrice.bind(this)} ref='walterPrice' value={this.state.walterPrice} />
+                <input walterPrice={this.state.walterPrice} onChange={this.onChangeWalterPrice.bind(this)} ref='walterPrice' value={this.state.walterPrice} />
               </label>
             </div>
             <div className='input__field'>
