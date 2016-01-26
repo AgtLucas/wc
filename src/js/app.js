@@ -19,10 +19,6 @@ class App extends Component {
     }
   }
 
-  componentDidUpdate () {
-    let bottles = this.bottlesForMoney(this.state.initialMoney)
-  }
-
   round (x) {
     return Math.round(x * 100.0) / 100.0
   }
