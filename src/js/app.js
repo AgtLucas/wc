@@ -63,12 +63,6 @@ class App extends Component {
       cashForTare: moneyForTare,
       total: this.round(total)
     })
-    // console.log(this.state)
-  }
-
-  theCalculator () {
-    let { total } = this.state
-    console.log(total)
   }
 
   handleSubmit (e) {
