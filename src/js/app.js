@@ -85,7 +85,7 @@ class App extends Component {
                 <input onChange={this.onChangeTheMoneyThatIHave.bind(this)} ref='initialMoney' value={this.state.initialMoney} />
               </label>
             </div>
-            <button>Calculate</button>
+            <button className='btn btn__calculate'>Calculate</button>
           </form>
 
           <div className='calculator__actions'>
