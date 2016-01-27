@@ -67,7 +67,6 @@ class App extends Component {
   }
 
   render () {
-    console.log(this.state)
     return (
       <section className='the__section'>
         <div className='wrapper'>
