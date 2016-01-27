@@ -69,7 +69,7 @@ class App extends Component {
   render () {
     console.log(this.state)
     return (
-      <section>
+      <section className='the__section'>
         <div className='wrapper'>
           <p>Hey!</p>
           <form onSubmit={this.handleSubmit.bind(this)}>
