@@ -88,7 +88,7 @@ class App extends Component {
             <button>Calculate</button>
           </form>
 
-          <div>
+          <div className='calculator__actions'>
             <p>Bottles: {this.state.bottlesForMoney}</p>
             <p>Cash Remaining: {this.state.cashRemaining}<small>€</small></p>
             <p>Cash for Tare: {this.state.cashForTare}<small>€</small></p>
